@@ -5,6 +5,7 @@ import 'react-responsive-carousel/lib/styles/carousel.css';
 
 import ThronepediaHeader from "../components/ThronepediaHeader"
 
+
 export default class CharactersView extends Component{
   constructor(){
     super()
@@ -20,7 +21,10 @@ export default class CharactersView extends Component{
         <div className="carousel-div col-6 mx-auto">
         <Carousel>
           <div>
-            <a href='#'>
+            <a href=<CharacterCard
+                name="bronn"
+                url="/characters/217"
+            /> >
               <img src="./bronn.jpg" />
             </a>
             <p className="legend">Bronn of the Blackwater</p>
