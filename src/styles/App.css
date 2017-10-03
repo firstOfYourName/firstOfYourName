@@ -68,6 +68,10 @@ button{
   width: 600px;
 }
 
+.death h1 {
+  margin: 8% 0;
+}
+
 .trivia-banner{
   /*background-color: #E4D2AF;*/
   background-image: url('/Trivia-Banner.png');

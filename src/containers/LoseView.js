@@ -6,12 +6,17 @@ import TriviaHeader from "../components/TriviaHeader"
 export default class LoseView extends Component{
 
   render(){
-    console.log(this.props);
-    let className = `hw-100-percent ${this.props.bodyClassName.trivia}`
+    let finalTitles = "";
+    this.props.titles.forEach(function (item) {(
+      finalTitles += (", " + item)
+    )})
+    let className = `hw-100-percent death ${this.props.bodyClassName.trivia}`
     return(
       <div className={className}>
         <h1>You Have Died!</h1>
-        <p>You have been {this.props.obit}</p>
+        <p className="col-md-10 mx-auto">{this.props.username}{finalTitles}, you have been {this.props.obit}.</p>
+        <p className="mx-auto">Valar Morghulis.</p>
+        <a className="mx-auto" href="/#/"><button className="btn btn-#808080 btn-lg">Home.</button></a>
       </div>
     )
   }

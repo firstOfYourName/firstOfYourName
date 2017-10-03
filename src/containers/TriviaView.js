@@ -4,6 +4,8 @@ import {fetchRandomQuote, getCorrectAnsObj, getIncorrectAnsObj} from '../../serv
 import TriviaHeader from "../components/TriviaHeader"
 import TriviaCard from "../components/TriviaCard"
 import LoseView from "./LoseView"
+import ProfileCard from "../components/ProfileCard"
+
 import '../styles/scrollBackdrop.css'
 
 export default class TriviaView extends Component {
@@ -83,6 +85,7 @@ _handleSubmit = (evt) => {
             </div>
           </div>
           <TriviaCard handleSubmit={this._handleSubmit} handleInput={this._handleInput} answersArr={this.state.answersArr}/>
+          <ProfileCard {...this.props}/>
         </div>
         </div>
     )}
