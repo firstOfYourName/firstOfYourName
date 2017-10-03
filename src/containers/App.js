@@ -6,6 +6,7 @@ import _ from "lodash"
 import { getRandomTitle } from '../content/titles'
 import { getRandomDeath } from '../content/deaths'
 
+import majorCharsArr from '../content/characterdata'
 import HomeView from './HomeView'
 import ThronepediaView from './ThronepediaView'
 import RegionsView from './RegionsView'
@@ -33,6 +34,7 @@ class App extends Component {
       titles: [],
       isDead: false,
       obit: "",
+      majorCharsArr: majorCharsArr,
       backgroundUrls: {
         level1: "level-1",
         level2: "level-2",
@@ -99,10 +101,12 @@ class App extends Component {
             <Route exact path='/thronepedia' component={() => <ThronepediaView {...this.state}/>}/>
             <Route exact path='/thronepedia/regions' component={() => <RegionsView {...this.state}/>}/>
             <Route exact path='/thronepedia/houses' component={() => <HousesView {...this.state}/>}/>
-            <Route exact path='/thronepedia/characters' component={() => <CharactersView {...this.state}/>}/>
+            <Route exact path='/thronepedia/characters' component={(props) => <CharactersView {...props} {...this.state}/>}/>
             <Route exact path='/thronepedia/regions/:name' component={() => <DetailedRegionsView {...this.state}/>}/>
             <Route exact path='/thronepedia/houses/:name' component={() => <DetailedHousesView {...this.state}/>}/>
-            <Route exact path='/thronepedia/characters/:name' component={() => <DetailedCharactersView {...this.state}/>}/>
+            <Route exact path='/thronepedia/characters/:name' component={(props) => <DetailedCharactersView
+              {...props}
+              {...this.state}/>}/>
             <Route exact path='/trivia' component={
               () => this.state.isDead ? <LoseView {...this.state} /> : (
                 <TriviaView

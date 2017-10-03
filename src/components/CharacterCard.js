@@ -1,17 +1,24 @@
 import React, { Component } from 'react'
+import axios from 'axios'
+let apiLink = "https://www.anapioficeandfire.com/api/"
 
 export default class CharacterCard extends Component {
+
+  componentDidMount () {
+    apiLink += this.props.url
+    axios.get(apiLink).then((response) => {
+      console.log(response.data);
+    } ) //fetch with the link we make from the props url
+    //then: fill in the below fields with the response
+    //let charInfo = response.data.blah
+  }
   render() {
+    //let charInfo = response.data
     return (
       <div className="card">
         <div className="card-body">
-          <h4 className="card-title">{this.props.chacterDataObj.name}</h4>
-          <p className="card-text">{this.props.characterDataObj.culture}</p>
-          <p className="card-text">{this.props.characterDataObj.born}</p>
-          <p className="card-text">{this.props.characterDataObj.died}</p>
-          <p className="card-text">{this.props.characterDataObj.titles}</p>
-          <p className="card-text">{this.props.characterDataObj.aliases}</p>
-          <p className="card-text">{this.props.characterDataObj.playedBy}</p>
+          <h4 className="card-title"></h4>
+
         </div>
       </div>
     )
