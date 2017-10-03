@@ -32,6 +32,8 @@ const majorCharsArr = [
   // {"character": "brienne", "url": "characters/216"},
 ];
 
+export default majorCharsArr;
+
 //object that will be populated with character data
 let characterDataObj = {
   "name": "",

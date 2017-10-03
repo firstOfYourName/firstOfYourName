@@ -10,8 +10,17 @@ export default class CharactersView extends Component{
   constructor(){
     super()
     this.state = {
-
+    selectedCharacter: "",
     }
+  }
+  handleSelect = (event) => {
+    this.setState({selectedCharacter: event.target.value})
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    this.props.history.push(`/thronepedia/characters/${this.state.selectedCharacter}`)
+
   }
   render(){
     let className = `hw-100-percent ${this.props.bodyClassName.thronepedia}`
@@ -21,12 +30,7 @@ export default class CharactersView extends Component{
         <div className="carousel-div col-6 mx-auto">
         <Carousel>
           <div>
-            <a href=<CharacterCard
-                name="bronn"
-                url="/characters/217"
-            /> >
               <img src="./bronn.jpg" />
-            </a>
             <p className="legend">Bronn of the Blackwater</p>
           </div>
           <div>
@@ -90,6 +94,18 @@ export default class CharactersView extends Component{
             <p className="legend">Varys, the Spider</p>
           </div>
         </Carousel>
+        <form action="">
+          <select onChange={this.handleSelect} name="" class="bg-dark">
+            {this.props.majorCharsArr.map((CharInfo) => {
+              return(
+                <option
+                    key= {CharInfo.character}
+                    value={CharInfo.character}>{CharInfo.character}</option>
+              )
+            })}
+          </select>
+          <button type="button" onClick={this.handleSubmit}>Submit</button>
+        </form>
         </div>
       </div>
     )
