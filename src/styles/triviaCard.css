@@ -4,4 +4,28 @@
   margin: 0 auto;
   text-align: left;
   color: black;
+  border: hidden;
+  border-radius: 5px;
+}
+
+.profile_info{
+  background: #808080;
+  margin: 0 auto;
+  border: hidden;
+}
+
+#clipboard{
+  margin: 0 auto;
+  background-color: #808080;
+  border: hidden;
+  padding: 0 auto;
+}
+
+p{
+  font-size: 12px;
+}
+
+li{
+  text-decoration: none;
+  list-style: none;
 }
